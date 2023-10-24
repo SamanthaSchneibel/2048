@@ -1,10 +1,10 @@
-#include <iostream>
-#include <stdio.h>
+#include "game.hpp"
 
 using namespace std;
 
 int main() {
 
+	/*
 	//afficher tableau de 20
 	int tableau[20];
 
@@ -21,22 +21,18 @@ int main() {
 		std::cout << tableau[i] << " ";
 	}
 	std::cout << std::endl;
-
-	/*
+	
 	//ajouter 3 dans les index paires
 	for (int i = 0; i < 20; i += 2) {
 		tableau[i] += 3;
 	}
 	std::cout << std::endl;
-	*/
-
-	/*
+		
 	//ajouter 3 dans les cases paires
 	for (int i = 1; i < 20; i += 2) {
 		tableau[i] += 3;
 	}
-	*/
-
+	
 	//ajouter 5 toutes les 5 cases
 	for (int i = 0; i < 20; i += 5) {
 		tableau[i] += 5;
@@ -46,6 +42,10 @@ int main() {
 		std::cout << tableau[i] << " ";
 	}
 	std::cout << std::endl;
+	*/
+
+	Game game;
+	game.displayGrid();
 
 	return 0;
 }
