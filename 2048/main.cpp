@@ -45,7 +45,7 @@ int main() {
 	*/
 
 	Grid grid;
-	grid.moveLeft();
+	grid.moveUp();
 	grid.display();
 
 
