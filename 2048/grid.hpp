@@ -2,11 +2,11 @@
 #include <iostream>
 #include <stdio.h>
 
-class Game
+class Grid
 {
 public:
-	Game();
-	~Game();
+	Grid();
+	~Grid();
 
 	void displayGrid();
 
@@ -16,4 +16,3 @@ private:
 
 
 };
-

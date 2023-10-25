@@ -1,4 +1,4 @@
-#include "game.hpp"
+#include "grid.hpp"
 
 using namespace std;
 
@@ -44,8 +44,8 @@ int main() {
 	std::cout << std::endl;
 	*/
 
-	Game game;
-	game.displayGrid();
+	Grid grid;
+	grid.displayGrid();
 
 	return 0;
 }
