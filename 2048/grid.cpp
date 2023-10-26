@@ -2,8 +2,8 @@
 
 Grid::Grid()
 {
-    grid[3][0] = 2;
-
+    grid[0][0] = 2;
+    grid[0][2] = 2;
 }
 
 Grid::~Grid()
@@ -68,9 +68,14 @@ void Grid::moveRight() {
                 if (grid[iColumn][iFullCell] == 0)
                     continue;
 
+                if (grid[iColumn][iFullCell] == grid[iColumn][iEmptyCell]) {
+                    grid[iColumn][iFullCell] *= 2;
+                }
+                    
                 grid[iColumn][iEmptyCell] = grid[iColumn][iFullCell];
                 grid[iColumn][iFullCell] = 0;
                 break;
+
             }
         }
     }
