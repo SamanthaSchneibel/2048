@@ -131,6 +131,8 @@
     <ClCompile Include="game.cpp" />
     <ClCompile Include="grid.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="test.cpp" />
+    <ClCompile Include="test.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cell.hpp" />

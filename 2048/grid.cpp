@@ -2,10 +2,7 @@
 
 Grid::Grid()
 {
-    grid[0][0] = 2;
-    grid[1][0] = 2;
-    grid[2][0] = 2;
-    grid[3][0] = 2;
+
 }
 
 Grid::~Grid()
@@ -53,6 +50,7 @@ void Grid::moveRight() {
             }
         }
     }
+
 
     for (int iColumn = 0; iColumn < 4; iColumn++) {
         for (int iEmptyCell = 3; iEmptyCell >= 0; iEmptyCell--) {
