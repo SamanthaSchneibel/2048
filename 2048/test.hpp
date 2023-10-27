@@ -6,7 +6,7 @@ public:
 	Test();
 	~Test();
 
-	void test1();
+	void test();
 
 	bool running() { return isRunning; };
 

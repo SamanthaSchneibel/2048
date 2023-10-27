@@ -8,7 +8,7 @@ Test::~Test()
 {
 }
 
-void Test::test1() {
+void Test::test() {
 
     int setup[4][4] =
     {
