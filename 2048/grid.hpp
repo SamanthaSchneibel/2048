@@ -13,6 +13,7 @@ class Grid
 {
 public:
 	Grid();
+	Grid(int config[4][4]);
 	~Grid();
 
 	void display();
@@ -23,10 +24,10 @@ public:
 	void moveLeft();
 	void moveUp();
 	void moveDown();
+	bool compare(int config[4][4]);
 
 private:
-	
-	int grid[4][4] = { 0 };
 
+	int grid[4][4] = { 0 };
 
 };

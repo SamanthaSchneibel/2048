@@ -1,7 +1,4 @@
-#pragma once
-#include <iostream>
-#include <stdio.h>
-#include <conio.h>
+#include "grid.hpp"
 
 class Test
 {
@@ -11,6 +8,10 @@ public:
 
 	void test1();
 
+	bool running() { return isRunning; };
+
 private:
+
+	bool isRunning = true;
 
 };
