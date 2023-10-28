@@ -228,7 +228,6 @@ void Grid::spawnCell() {
     if (emptyCellNumber == 0)
         return;
     int randomNumber = rand() % emptyCellNumber;
-    std::cout << randomNumber <<std::endl;
 
     for (int i = 0; i < 4; i++) {
         for (int j = 0; j < 4; j++) {
