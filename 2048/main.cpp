@@ -3,7 +3,8 @@
 
 int main() {
 
-	/*
+	srand(static_cast<unsigned int>(time(0)));
+	
 	Game game;
 	game.display();
 
@@ -11,13 +12,16 @@ int main() {
 		game.handleEvent();
 		game.display();
 	}
-	*/
 
+	std::cout << "LOOOSERRR" << std::endl;
+
+	/*
 	Test test;
 
 	while (test.running()) {
-		test.test1();
+		test.test();
 	}
+	*/
 
 	return 0;
 }

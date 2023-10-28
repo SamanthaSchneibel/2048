@@ -20,10 +20,15 @@ public:
 
 	void handleEvent();
 
-	void moveRight();
-	void moveLeft();
-	void moveUp();
-	void moveDown();
+	bool moveRight();
+	bool moveLeft();
+	bool moveUp();
+	bool moveDown();
+
+	void spawnCell();
+
+	bool isDefeat();
+
 	bool compare(int config[4][4]);
 
 private:

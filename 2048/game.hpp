@@ -10,11 +10,10 @@ public:
 
 	void handleEvent();
 
-	bool running() { return isRunning; };
+	bool running() { return !grid.isDefeat(); };
 
 private:
 
 	Grid grid;
-	bool isRunning = true;
-	
+
 };

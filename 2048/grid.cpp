@@ -2,7 +2,6 @@
 
 Grid::Grid()
 {
-
 }
 
 Grid::Grid(int config[4][4])
@@ -42,7 +41,9 @@ void Grid::display() {
 
 }
 
-void Grid::moveRight() {
+bool Grid::moveRight() {
+
+    bool move = false;
 
     for (int iColumn = 0; iColumn < 4; iColumn++) {
         for (int iFullCell1 = 3; iFullCell1 >= 0; iFullCell1--) {
@@ -57,11 +58,11 @@ void Grid::moveRight() {
                 if (grid[iColumn][iFullCell1] == grid[iColumn][iFullCell2]) {
                     grid[iColumn][iFullCell1] *= 2;
                     grid[iColumn][iFullCell2] = 0;
+                    move = true;
                 }
             }
         }
     }
-
 
     for (int iColumn = 0; iColumn < 4; iColumn++) {
         for (int iEmptyCell = 3; iEmptyCell >= 0; iEmptyCell--) {
@@ -74,13 +75,18 @@ void Grid::moveRight() {
                     
                 grid[iColumn][iEmptyCell] = grid[iColumn][iFullCell];
                 grid[iColumn][iFullCell] = 0;
+                move = true;
                 break;
             }
         }
     }
+
+    return move;
 }
 
-void Grid::moveLeft() {
+bool Grid::moveLeft() {
+
+    bool move = false;
 
     for (int iColumn = 0; iColumn < 4; iColumn++) {
         for (int iFullCell1 = 0; iFullCell1 <= 3; iFullCell1++) {
@@ -95,6 +101,7 @@ void Grid::moveLeft() {
                 if (grid[iColumn][iFullCell1] == grid[iColumn][iFullCell2]) {
                     grid[iColumn][iFullCell1] *= 2;
                     grid[iColumn][iFullCell2] = 0;
+                    move = true;
                 }
             }
         }
@@ -111,14 +118,18 @@ void Grid::moveLeft() {
 
                 grid[iColumn][iEmptyCell] = grid[iColumn][iFullCell];
                 grid[iColumn][iFullCell] = 0;
+                move = true;
                 break;
             }
         }
     }
 
+    return move;
 }
 
-void Grid::moveDown() {
+bool Grid::moveDown() {
+
+    bool move = false;
 
     for (int jRow = 0; jRow < 4; jRow++) {
         for (int jFullCell1 = 3; jFullCell1 >= 0; jFullCell1--) {
@@ -133,6 +144,7 @@ void Grid::moveDown() {
                 if (grid[jFullCell1][jRow] == grid[jFullCell2][jRow]) {
                     grid[jFullCell1][jRow] *= 2;
                     grid[jFullCell2][jRow] = 0;
+                    move = true;
                 }
             }
         }
@@ -149,14 +161,18 @@ void Grid::moveDown() {
 
                 grid[jEmptyCell][jRow] = grid[jFullCell][jRow];
                 grid[jFullCell][jRow] = 0;
+                move = true;
                 break;
             }
         }
     }
 
+    return move;
 }
 
-void Grid::moveUp() {
+bool Grid::moveUp() {
+
+    bool move = false;
 
     for (int jRow = 0; jRow < 4; jRow++) {
         for (int jFullCell1 = 0; jFullCell1 <= 3; jFullCell1++) {
@@ -171,6 +187,7 @@ void Grid::moveUp() {
                 if (grid[jFullCell1][jRow] == grid[jFullCell2][jRow]) {
                     grid[jFullCell1][jRow] *= 2;
                     grid[jFullCell2][jRow] = 0;
+                    move = true;
                 }
             }
         }
@@ -187,21 +204,85 @@ void Grid::moveUp() {
 
                 grid[jEmptyCell][jRow] = grid[jFullCell][jRow];
                 grid[jFullCell][jRow] = 0;
+                move = true;
                 break;
             }
         }
     }
 
+    return move;
 }
- 
+
+void Grid::spawnCell() {
+
+    int emptyCellNumber = 0;
+
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 4; j++) {
+            if (grid[i][j] == 0) {
+                emptyCellNumber++;
+            }
+        }
+    }
+
+    if (emptyCellNumber == 0)
+        return;
+    int randomNumber = rand() % emptyCellNumber;
+    std::cout << randomNumber <<std::endl;
+
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 4; j++) {
+            if (grid[i][j] == 0) {
+                if (randomNumber == 0) {
+                    grid[i][j] = ((rand() % 2) + 1) * 2;
+                }
+                randomNumber--;
+            }
+        }
+    }
+
+
+
+}
+
+bool Grid::isDefeat() {
+
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 4; j++) {
+            if (grid[i][j] == 0) {
+                return false;
+            }
+        }
+    }
+
+    for (int i = 0; i < 4; i++) {
+        int temp = grid[i][0];
+        for (int j = 1; j < 4; j++) {
+            if (grid[i][j] == temp) {
+                return false;
+            }
+            temp = grid[i][j];
+        }
+    }
+
+    for (int i = 0; i < 4; i++) {
+        int temp = grid[0][i];
+        for (int j = 1; j < 4; j++) {
+            if (grid[j][i] == temp) {
+                return false;
+            }
+            temp = grid[j][i];
+        }
+    }
+
+    return true;
+}
+
 bool Grid::compare(int config[4][4])
 {
-    for (int i = 0; i < 4; ++i)
-    {
-        for (int j = 0; j < 4; ++j)
-        {
-            if (grid[i][j] != config[i][j])
-            {
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 4; j++) {
+            if (grid[i][j] != config[i][j]) {
                 return false;
             }
         }

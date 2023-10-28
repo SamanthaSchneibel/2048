@@ -2,6 +2,8 @@
 
 Game::Game()
 {
+    grid.spawnCell();
+    grid.spawnCell();
 }
 
 Game::~Game()
@@ -24,16 +26,24 @@ void Game::handleEvent() {
         switch ((c = _getch()))
         {
         case KEY_UP:
-            grid.moveUp();
+            if (grid.moveUp()) {
+                grid.spawnCell();
+            }
             break;
         case KEY_DOWN:
-            grid.moveDown();
+            if (grid.moveDown()) {
+                grid.spawnCell();
+            }
             break;
         case KEY_RIGHT:
-            grid.moveRight();
+            if (grid.moveRight()) {
+                grid.spawnCell();
+            }
             break;
         case KEY_LEFT:
-            grid.moveLeft();
+            if (grid.moveLeft()) {
+                grid.spawnCell();
+            }
             break;
         default:
             badKey = true;
